@@ -1,0 +1,15 @@
+a href="#myModal" role="button" class="btn" data-toggle="modal" 反馈
+div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+  = form_tag (feedback_app.feedback_infos_path), html: { class: '' } do
+    div class="modal-header"
+      button type="button" class="close" data-dismiss="modal" aria-hidden="true" x
+      h3 id="myModalLabel" 产品问题反馈
+    div class="modal-body"
+      fieldset
+        label 标题
+        = text_field_tag "title",nil, :placeholder => "反馈标题"
+        label 内容
+        = text_area_tag "content",nil, rows:"3", style:"max-width:516px;min-width:516px;"
+    div class="modal-footer"
+      button class="btn" data-dismiss="modal" aria-hidden="true" 关闭
+      = button_tag "提交", type:"submit", class: 'btn btn-primary',value:"提交"
