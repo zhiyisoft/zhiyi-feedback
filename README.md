@@ -13,3 +13,7 @@ And then execute:
 And install feedback:
 
     $ rails g feedback:install
+    
+在项目中需要添加反馈按钮的地方加上如下语句
+
+    = link_to '反馈','/feedback/feedback_infos/new',:id => "add_feedback", :remote => true, "data-type" => "script",:class =>"btn"
