@@ -1,6 +1,6 @@
 # 用户反馈的Rails引擎
 
-## Installation
+### Installation
 
 Add this line to your application's Gemfile:
 
@@ -10,6 +10,6 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+And install feedback:
 
     $ rails g feedback:install
