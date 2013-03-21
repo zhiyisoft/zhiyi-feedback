@@ -1,0 +1,14 @@
+div class="span12 content"
+  article class="shadow-box"
+    header class="modal-header"
+      h2
+        = link_to @feedback_info.title,feedback_info_path(@feedback_info)
+    section class="modal-body"
+      = @feedback_info.content
+    footer class="text-left modal-footer"
+      i class="icon-time"
+      = @feedback_info.created_at.to_s(:db)
+      i class="separate"
+      ||
+      i class="icon-user"
+      = @feedback_info.username

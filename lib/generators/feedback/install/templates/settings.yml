@@ -1,14 +1,4 @@
 # config/settings.yml
-
-development:
-  <<: *defaults
-
-test:
-  <<: *defaults
-
-production:
-  <<: *defaults
-
 defaults: &defaults
   email_from: 'xxx@zhiyisoft.com'
   email_addr: 'xxx@zhiyisoft.com'
@@ -19,3 +9,13 @@ defaults: &defaults
     password: 'xxxx'
     port: 25
     address: 'smtp.exmail.qq.com'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+

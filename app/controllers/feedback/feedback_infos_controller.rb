@@ -18,7 +18,7 @@ module Feedback
     def create
       @feedback_info = FeedbackInfo.new(params[:feedback_info])
       if @feedback_info.save then
-        send_feedback_info(@feedback_info).deliver
+        FeedbackMailer.send_feedback_info(@feedback_info).deliver
         redirect_to feedback_infos_path 
       else
         redirect_to root_path
