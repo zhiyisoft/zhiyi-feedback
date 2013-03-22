@@ -1,1 +1,24 @@
-= render :partial => "feedback/feedback_infos/feedback"
+div class="row-fluid"
+  div class="span9 content"
+    - @feedback_infos.each do |feedback_info|
+      article class="shadow-box"
+        header class="modal-header"
+          h2
+            = link_to feedback_info.title,feedback_info_path(feedback_info)
+        section class="modal-body"
+          = feedback_info.content
+        footer class="text-left modal-footer"
+          i class="icon-time"
+          = feedback_info.created_at.to_s(:db)
+          i class="separate"
+          ||
+          i class="icon-user"
+          = feedback_info.username
+          i class="separate"
+          ||
+          a href="/blog/create-weixin-api-by-rails.html#comments"
+            |6条评论
+  div class="span3"
+
+style type="text/css"
+  |.shadow-box{box-shadow: 0 0 6px rgba(0,0,0,0.2);margin-top: 20px;margin-left: 20px;border: 1px solid #ccc;border-radius: 4px;background: #fff;}

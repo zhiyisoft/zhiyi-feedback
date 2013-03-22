@@ -1,5 +1,9 @@
 module Feedback
-  class FeedbackInfo < ::ActiveResource::Base
-    self.site = Settings.feedback.site_url
+  class FeedbackInfo 
+    include Mongoid::Document
+    include Mongoid::Timestamps
+    field :title
+    field :username
+    field :content
   end
 end
