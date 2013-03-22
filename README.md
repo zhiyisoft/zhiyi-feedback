@@ -1,29 +1,19 @@
-# Feedback
+# 用户反馈的Rails引擎
 
-TODO: Write a gem description
-
-## Installation
+### Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'feedback'
+    gem 'feedback',:git => 'git@github.com:YinChangXin/zhiyi-feedback.git'
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
+And install feedback:
 
-    $ gem install feedback
+    $ rails g feedback:install
+    
+在项目中需要添加反馈按钮的地方加上如下语句
 
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+    = link_to '反馈','/feedback/feedback_infos/new',:id => "add_feedback", :remote => true, "data-type" => "script",:class =>"btn"
