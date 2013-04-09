@@ -12,6 +12,14 @@ class Feedback::InstallGenerator < Rails::Generators::Base
   def copy_additional_file
     copy_file 'setting.rb', 'app/models/setting.rb'
     copy_file 'settings.yml', 'config/settings.yml'
+    copy_file 'html2canvas.js', 'app/assets/javascripts/html2canvas.js'
   end
+
+  def inject_css_and_js
+    inject_into_file 'app/assets/javascripts/application.js', after: "//= require jquery_ujs\n" do <<-'RUBY'
+//= require html2canvas
+    RUBY
+    end
   end
+
 end
