@@ -1,0 +1,32 @@
+div class="row-fluid"
+  div class="span12 content"
+    article class="shadow-box"
+      header class="modal-header"
+        h2
+          = @feedback_info.title
+        p
+          i class="icon-time"
+          = @feedback_info.created_at.to_s(:db)
+          i class="separate"
+          ||
+          i class="icon-user"
+          = @feedback_info.username
+      section class="modal-body"
+        = @feedback_info.content
+        div
+          p 截图预览: 
+          = image_tag(@feedback_info.image, :width => '640',:style => 'border: 1px solid #ccc;')
+      footer class="text-left modal-footer"
+        i class="icon-time"
+        = @feedback_info.created_at.to_s(:db)
+        i class="separate"
+        ||
+        i class="icon-user"
+        = @feedback_info.username
+        i class="separate"
+        ||
+        a href="#"
+          |6条评论
+
+style type="text/css"
+  |.shadow-box{box-shadow: 0 0 6px rgba(0,0,0,0.2);margin-top: 20px;margin-left: 20px;margin-right: 20px;border: 1px solid #ccc;border-radius: 4px;background: #fff;}

@@ -1,0 +1,20 @@
+# config/settings.yml
+defaults: &defaults
+  email_from: 'xxxx@zhiyisoft.com'
+  email_addr: 'xxxx@zhiyisoft.com'
+  email_title: '反馈信息'
+  #邮件配置
+  smtp:
+    user_name: 'yinchangxin@zhiyisoft.com'
+    password: 'xxxxxxxx'
+    port: 25
+    address: 'smtp.ym.163.com'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

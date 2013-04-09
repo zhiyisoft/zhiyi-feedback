@@ -1,16 +1,25 @@
 class Feedback::InstallGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
-  
+
   def inject_gem_dependeny
     gem 'slim'
     gem 'simple_form'
+    gem 'settingslogic'
 
     route %Q(mount Feedback::Engine => '/feedback', as: 'feedback_app')
   end
 
   def copy_additional_file
-    copy_file 'tree.jquery.js', 'app/assets/javascripts/tree.jquery.js'
-    copy_file 'jqtree.css', 'app/assets/stylesheets/jqtree.css'
+    copy_file 'setting.rb', 'app/models/setting.rb'
+    copy_file 'settings.yml', 'config/settings.yml'
+    copy_file 'html2canvas.js', 'app/assets/javascripts/html2canvas.js'
+  end
+
+  def inject_css_and_js
+    inject_into_file 'app/assets/javascripts/application.js', after: "//= require jquery_ujs\n" do <<-'RUBY'
+//= require html2canvas
+    RUBY
+    end
   end
 
 end
