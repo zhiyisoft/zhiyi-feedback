@@ -3,7 +3,7 @@ div class="row-fluid"
     article class="shadow-box"
       header class="modal-header"
         h2
-          = link_to @feedback_info.title,feedback_info_path(@feedback_info)
+          = @feedback_info.title
         p
           i class="icon-time"
           = @feedback_info.created_at.to_s(:db)
@@ -13,6 +13,9 @@ div class="row-fluid"
           = @feedback_info.username
       section class="modal-body"
         = @feedback_info.content
+        div
+          p 截图预览: 
+          = image_tag(@feedback_info.image, :width => '640',:style => 'border: 1px solid #ccc;')
       footer class="text-left modal-footer"
         i class="icon-time"
         = @feedback_info.created_at.to_s(:db)

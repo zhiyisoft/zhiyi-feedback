@@ -5,5 +5,7 @@ module Feedback
     field :title
     field :username
     field :content
+    field :current_url
+    field :image
   end
 end
