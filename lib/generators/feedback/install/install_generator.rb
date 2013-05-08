@@ -10,9 +10,8 @@ class Feedback::InstallGenerator < Rails::Generators::Base
   end
 
   def copy_additional_file
-    copy_file 'setting.rb', 'app/models/setting.rb'
-    copy_file 'settings.yml', 'config/settings.yml'
     copy_file 'html2canvas.js', 'app/assets/javascripts/html2canvas.js'
+    copy_file 'send_feedback_info.html.erb', 'app/views/email/send_feedback_info.html.erb'
   end
 
   def inject_css_and_js
