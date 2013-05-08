@@ -1,5 +1,4 @@
-$("#add_feedback").before("<%= j render :partial => "feedback/feedback_infos/feedback" %>");
-$("#add_feedback").remove();
+$("#feedback").html("<%= j render :partial => "feedback/feedback_infos/feedback" %>");
 html2canvas( [ document.body ], {
   onrendered: function(canvas) {
     var imgData = $(canvas)[0].toDataURL();
@@ -7,7 +6,7 @@ html2canvas( [ document.body ], {
         h = $(canvas)[0].height;
     $("#image").attr("src",imgData);
     $("#feedback_info_image").attr("value",imgData);
+    $("#feedback_info_current_url").attr("value",window.location.href);
+    $('#myModal').modal('toggle');
   }
 });
-$("#feedback_info_current_url").attr("value",window.location.href);
-$("#feedback_dialog").click();
